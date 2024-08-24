@@ -7,7 +7,7 @@ import seaborn as sns
 @st.cache_data
 def load_data():
     # Replace with the path to your cleaned data
-    return pd.read_csv('../app/benin-malanville_cleaned.csv', index_col='Timestamp', parse_dates=True)
+    return pd.read_csv('../data/benin-malanville_cleaned.csv', index_col='Timestamp', parse_dates=True)
 
 df = load_data()
 
