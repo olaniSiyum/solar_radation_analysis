@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-from windrose import WindroseAxes
 
 # Load your data
 @st.cache_data
@@ -86,18 +85,6 @@ else:
         ax.set_xlabel('Value')
         ax.set_ylabel('Columns')
         st.pyplot(fig)
-
-    # Wind Rose Chart
-    st.subheader("Wind Rose Chart")
-    if 'WD' in filtered_df.columns and 'WS' in filtered_df.columns:
-        fig = plt.figure(figsize=(8, 6))
-        ax = WindroseAxes.from_ax()
-        ax.bar(filtered_df['WD'], filtered_df['WS'], normed=True, opening=0.8, edgecolor='white')
-        ax.set_title('Wind Rose')
-        st.pyplot(fig)
-    else:
-        st.write("Wind Rose requires 'WD' (Wind Direction) and 'WS' (Wind Speed) columns.")
-
     # Wind Speed and Direction Scatter Plot
     st.subheader("Wind Speed vs. Direction Scatter Plot")
     if 'WD' in filtered_df.columns and 'WS' in filtered_df.columns:
